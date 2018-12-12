@@ -1,0 +1,17 @@
+<section>
+    <div>
+        <h1>Bem-vindo!</h1>
+        <a href=""> Página principal</a>
+        <p>Esta aplicação ainda se encontra em fase pre-alpha ... qualquer erro ou falhar , reportar para
+            pedro.costa@ufp.edu.pt ou rafael.rodrigues@ufp.edu.pt.</p>
+        <div class="menu">
+            <nav>
+                {{#link-to "login"}}Login{{/link-to}}
+                {{#link-to "register"}}Registo{{/link-to}}
+            </nav>
+        </div>
+        <div>
+            {{outlet}}
+        </div>
+    </div>
+</section>

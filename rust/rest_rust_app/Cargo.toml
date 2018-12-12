@@ -1,0 +1,17 @@
+[package]
+name = "rest_rust_app"
+version = "0.1.0"
+authors = ["pedro <pedro.costa@ufp.edu.pt>","rafa <rafael.rodrigues@ufp.edu.pt>"]
+edition = "2018"
+
+[dependencies]
+pwhash = "0.2.0"
+rocket = "0.4.0-rc.1"
+rocket_contrib = "0.4.0-rc.1"
+rocket_cors = "0.4.0-rc.3"
+mongodb = "0.3.11"
+yyid = "0.2.4"
+bson = "0.13"
+serde = "1.0.80"
+serde_derive = "1.0.80"
+serde_json = "1.0.33"

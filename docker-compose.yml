@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  mongodb:
+    build:
+      context: '.'
+      dockerfile: './mongodb/Dockerfile'
+    networks:
+      - 'firstproject' #rede de ligação do docker 
+    ports:
+      - '27017-27017'
+    volumes:
+      - 'mongoData' # volume para a base de dados
+  rust: # imagem para rust
+    build:
+      context: '.'
+      dockerfile: './rust/Dockerfile'
+    ports:
+      - '8008:8080'
+    volumes:
+      - './rust/rest_rust_app/src:/home/rust/rest_rust_app/src'
+    depends_on:
+      - 'mongodb'
+    links:
+      - mongodb 
+    networks:
+      - 'firstproject' #rede de ligação do docker 
+  ember:
+    build:
+      context: '.'
+      dockerfile: './ember/Dockerfile'
+    ports:
+      - '4200:4200'
+    depends_on:
+      - 'mongodb'
+      - 'rust'
+    volumes:
+      - './ember/ember-app/:/home/ember/app'
+    networks: 
+      - 'firstproject'
+    
+volumes:
+  mongoData: {}
+
+networks: # cria network
+  firstproject:
